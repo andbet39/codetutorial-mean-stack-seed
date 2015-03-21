@@ -1,0 +1,7 @@
+{
+  "name": "codetutorial-mean-seed",
+  "dependencies": {
+    "angular": "latest",
+    "angular-route": "latest"
+  }
+}
