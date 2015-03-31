@@ -1,11 +1,14 @@
-
+var path = require('path');
 
     module.exports = function(app) {
 
         // basic routes to handle request
         app.get('*', function(req, res) {
-            res.sendFile('./public/index.html'); 
+                console.log("Main route");
+                res.sendFile(path.join(__dirname, '../../public', 'index.html'));
+
         });
+
 
     };
 

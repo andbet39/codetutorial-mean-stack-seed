@@ -6,6 +6,8 @@ var app            = express();
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 
+var httpServer = require("http").createServer(app);
+
     
 // config files
 var db = require('./config/db');
@@ -29,13 +31,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override')); 
 
 //set the public folder of the app
-app.use(express.static(__dirname + '/public')); 
+app.use(express.static(__dirname + '/public'));
 
 //load basic route for server
 require('./server/routes/basic')(app); 
 
 // startup our app at http://localhost:3000
-app.listen(port);               
+httpServer.listen(port);
+
 
 // shoutout to the user                     
 console.log('Server available at http://localhost:' + port);
